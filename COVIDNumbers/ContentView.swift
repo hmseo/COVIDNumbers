@@ -12,14 +12,15 @@ struct ContentView: View {
         Text("Hello, world!")
             .padding()
             .task {
-                let url = URL(string: "https://corona.lmao.ninja/v2/all?yesterday")!
+				let networkManager = NetworkManager()
 
-                do {
-                    let (data, _) = try await URLSession.shared.data(from: url)
-                    print(data)
-                } catch {
-                    print(error.localizedDescription)
-                }
+				do {
+					let data = try await networkManager.download(from: .worldwide)
+					let result = try JSONDecoder().decode(Worldwide.self, from: data)
+					print(result)
+				} catch {
+					print(error.localizedDescription)
+				}
             }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Worldwide {
+struct Worldwide: Decodable {
     let updated: Int
     let cases: Int
     let todayCases: Int
