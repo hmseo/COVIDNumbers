@@ -11,6 +11,16 @@ struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
+            .task {
+                let url = URL(string: "https://corona.lmao.ninja/v2/all?yesterday")!
+
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    print(data)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
     }
 }
 
