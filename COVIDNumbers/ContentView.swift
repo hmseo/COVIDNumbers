@@ -11,17 +11,6 @@ struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
-            .task {
-				let networkManager = NetworkManager()
-
-				do {
-					let data = try await networkManager.download(from: .worldwide)
-					let result = try JSONDecoder().decode(Worldwide.self, from: data)
-					print(result)
-				} catch {
-					print(error.localizedDescription)
-				}
-            }
     }
 }
 

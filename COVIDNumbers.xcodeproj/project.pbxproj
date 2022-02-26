@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1B207F4B27B7CD8F006E58B3 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B207F4A27B7CD8F006E58B3 /* Endpoint.swift */; };
 		1B207F4D27B7D8C9006E58B3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B207F4C27B7D8C9006E58B3 /* NetworkManager.swift */; };
+		1B5858BD27BF184000249A17 /* WorldwideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5858BC27BF184000249A17 /* WorldwideView.swift */; };
+		1B5858BF27BF186D00249A17 /* WorldwideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5858BE27BF186D00249A17 /* WorldwideViewModel.swift */; };
 		1B93EA0A27B1E4F0001731F0 /* Worldwide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B93EA0927B1E4F0001731F0 /* Worldwide.swift */; };
 		1BF69A3727B002A90034B81F /* COVIDNumbersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF69A3627B002A90034B81F /* COVIDNumbersApp.swift */; };
 		1BF69A3927B002A90034B81F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF69A3827B002A90034B81F /* ContentView.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		1B207F4A27B7CD8F006E58B3 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		1B207F4C27B7D8C9006E58B3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1B5858BC27BF184000249A17 /* WorldwideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideView.swift; sourceTree = "<group>"; };
+		1B5858BE27BF186D00249A17 /* WorldwideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldwideViewModel.swift; sourceTree = "<group>"; };
 		1B7BFBFE27B3D97B00636A2D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1B93EA0927B1E4F0001731F0 /* Worldwide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worldwide.swift; sourceTree = "<group>"; };
 		1BF69A3327B002A90034B81F /* COVIDNumbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COVIDNumbers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +50,15 @@
 				1B207F4C27B7D8C9006E58B3 /* NetworkManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		1B5858BB27BF183600249A17 /* Worldwide */ = {
+			isa = PBXGroup;
+			children = (
+				1B5858BC27BF184000249A17 /* WorldwideView.swift */,
+				1B5858BE27BF186D00249A17 /* WorldwideViewModel.swift */,
+			);
+			path = Worldwide;
 			sourceTree = "<group>";
 		};
 		1B93EA0827B1E069001731F0 /* Models */ = {
@@ -76,6 +89,7 @@
 		1BF69A3527B002A90034B81F /* COVIDNumbers */ = {
 			isa = PBXGroup;
 			children = (
+				1B5858BB27BF183600249A17 /* Worldwide */,
 				1B207F4927B7CD84006E58B3 /* Networking */,
 				1B93EA0827B1E069001731F0 /* Models */,
 				1BF69A3627B002A90034B81F /* COVIDNumbersApp.swift */,
@@ -167,7 +181,9 @@
 				1BF69A3927B002A90034B81F /* ContentView.swift in Sources */,
 				1BF69A3727B002A90034B81F /* COVIDNumbersApp.swift in Sources */,
 				1B207F4D27B7D8C9006E58B3 /* NetworkManager.swift in Sources */,
+				1B5858BF27BF186D00249A17 /* WorldwideViewModel.swift in Sources */,
 				1B207F4B27B7CD8F006E58B3 /* Endpoint.swift in Sources */,
+				1B5858BD27BF184000249A17 /* WorldwideView.swift in Sources */,
 				1B93EA0A27B1E4F0001731F0 /* Worldwide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
