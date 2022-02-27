@@ -8,7 +8,7 @@
 import Foundation
 
 struct Worldwide: Decodable {
-    let updated: Int
+    let updated: TimeInterval
     let cases: Int
     let todayCases: Int
     let deaths: Int

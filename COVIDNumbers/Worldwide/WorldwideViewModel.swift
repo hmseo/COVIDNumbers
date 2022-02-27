@@ -11,6 +11,7 @@ import Foundation
 class WorldwideViewModel: ObservableObject {
 	@Published private(set) var isLoading = false
     @Published private(set) var worldwide: Worldwide? = nil
+    @Published private(set) var error: Error?
 
     init() {
         fetch()
@@ -18,6 +19,8 @@ class WorldwideViewModel: ObservableObject {
 
     func fetch() {
         isLoading = true
+        worldwide = nil
+        error = nil
 
         let networkManager = NetworkManager()
 
@@ -30,7 +33,7 @@ class WorldwideViewModel: ObservableObject {
             case .success(let data):
                 worldwide = data
             case .failure(let error):
-                print(error.localizedDescription)
+                self.error = error
             }
         }
     }

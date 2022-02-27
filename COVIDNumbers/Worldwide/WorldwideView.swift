@@ -11,10 +11,41 @@ struct WorldwideView: View {
     @StateObject private var viewModel = WorldwideViewModel()
 
     var body: some View {
-        if viewModel.isLoading {
-            ProgressView()
-        } else {
-            Text("Cases: \(viewModel.worldwide?.cases ?? 0)")
+        NavigationView {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                Group {
+                    if let worldwide = viewModel.worldwide {
+                        WorldwideListView(
+                            cases: worldwide.cases,
+                            todayCases: worldwide.todayCases,
+                            deaths: worldwide.deaths,
+                            todayDeaths: worldwide.todayDeaths,
+                            recovered: worldwide.recovered,
+                            todayRecovered: worldwide.todayRecovered,
+                            active: worldwide.active,
+                            population: worldwide.population,
+                            affectedCountries: worldwide.affectedCountries,
+                            updated: worldwide.updated
+                        )
+                    } else {
+                        if let error = viewModel.error {
+                            Text(error.localizedDescription)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                }
+                .navigationTitle("COVID Numbers")
+                .toolbar {
+                    Button {
+                        viewModel.fetch()
+                    } label: {
+                        Label("Refresh", systemImage: "arrow.clockwise")
+                    }
+                }
+            }
         }
     }
 }
