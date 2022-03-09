@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct NetworkManager {
+struct NetworkManager<T: Decodable> {
 	let session: URLSession
 
 	init(session: URLSession = .shared) {
 		self.session = session
 	}
 
-	func download(from endpoint: Endpoint) async -> Result<Worldwide, Error> {
+    func download(from endpoint: Endpoint) async -> Result<T, Error> {
         do {
             let (data, response) = try await session.data(from: endpoint.url)
 
@@ -26,7 +26,7 @@ struct NetworkManager {
                 return .failure(URLError(.zeroByteResource))
             }
 
-            let result = try JSONDecoder().decode(Worldwide.self, from: data)
+            let result = try JSONDecoder().decode(T.self, from: data)
 
             return .success(result)
         } catch {

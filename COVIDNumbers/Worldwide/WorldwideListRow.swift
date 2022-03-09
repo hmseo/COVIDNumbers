@@ -14,7 +14,6 @@ struct WorldwideListRow: View {
     var body: some View {
         HStack {
             Text(title)
-                .bold()
 
             Spacer()
 

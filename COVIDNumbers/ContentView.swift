@@ -9,8 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            WorldwideView()
+                .tabItem {
+                    Label("Worldwide", systemImage: "globe.asia.australia")
+                }
+
+            CountriesView()
+                .tabItem {
+                    Label("Countries", systemImage: "flag.2.crossed")
+                }
+        }
     }
 }
 

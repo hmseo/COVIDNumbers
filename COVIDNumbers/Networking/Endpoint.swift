@@ -35,4 +35,14 @@ extension Endpoint {
 			queries: [URLQueryItem(name: "yesterday", value: "true")]
 		)
 	}
+
+    static var allCountries: Self {
+        Endpoint(
+            path: "v2/countries",
+            queries: [
+                URLQueryItem(name: "yesterday", value: "true"),
+                URLQueryItem(name: "sort", value: "")
+            ]
+        )
+    }
 }

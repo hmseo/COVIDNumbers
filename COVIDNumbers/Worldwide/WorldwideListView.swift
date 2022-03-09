@@ -24,8 +24,7 @@ struct WorldwideListView: View {
             Image("covid")
                 .resizable()
                 .scaledToFit()
-                .cornerRadius(10)
-                .padding()
+                .padding(-20)
 
             Section {
                 WorldwideListRow(title: "Cases", number: cases)

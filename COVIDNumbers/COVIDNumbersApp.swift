@@ -11,7 +11,7 @@ import SwiftUI
 struct COVIDNumbersApp: App {
     var body: some Scene {
         WindowGroup {
-            WorldwideView()
+            ContentView()
         }
     }
 }

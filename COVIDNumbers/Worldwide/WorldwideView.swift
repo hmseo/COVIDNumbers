@@ -31,9 +31,7 @@ struct WorldwideView: View {
                         )
                     } else {
                         if let error = viewModel.error {
-                            Text(error.localizedDescription)
-                                .foregroundColor(.red)
-                                .multilineTextAlignment(.center)
+                            ErrorView(error: error)
                         }
                     }
                 }
