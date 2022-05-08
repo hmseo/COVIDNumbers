@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct WorldwideView: View {
-    @StateObject private var viewModel = WorldwideViewModel()
+    @StateObject private var viewModel: WorldwideViewModel
+
+    init() {
+        _viewModel = StateObject(wrappedValue: WorldwideViewModel())
+    }
 
     var body: some View {
         NavigationView {

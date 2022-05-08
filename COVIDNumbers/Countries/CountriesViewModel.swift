@@ -13,6 +13,15 @@ class CountriesViewModel: ObservableObject {
     @Published private(set) var countries = [Country]()
     @Published private(set) var error: Error?
 
+    @Published var searchTerm = ""
+
+    var searchedResults: [Country] {
+        countries.filter {
+            searchTerm.isEmpty
+            || $0.country.lowercased().contains(searchTerm.lowercased())
+        }
+    }
+
     init() {
         fetch()
     }

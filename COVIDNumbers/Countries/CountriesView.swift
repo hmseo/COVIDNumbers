@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct CountriesView: View {
-    @StateObject private var viewModel = CountriesViewModel()
+    @StateObject private var viewModel: CountriesViewModel
+
+    init() {
+        _viewModel = StateObject(wrappedValue: CountriesViewModel())
+    }
 
     var body: some View {
         if viewModel.isLoading {
@@ -20,14 +24,27 @@ struct CountriesView: View {
                         ErrorView(error: error)
                     } else {
                         List {
-                            ForEach(viewModel.countries) { country in
-                                Text(country.country)
+                            ForEach(viewModel.searchedResults) { country in
+                                CountriesListRow(
+                                    name: country.country,
+                                    continent: country.continent,
+                                    population: country.population,
+                                    url: country.countryInfo.flag
+                                )
                             }
                         }
                         .listStyle(.plain)
+                        .searchable(text: $viewModel.searchTerm)
                     }
                 }
                 .navigationTitle("Countries")
+                .toolbar {
+                    Button {
+                        viewModel.fetch()
+                    } label: {
+                        Label("Refresh", systemImage: "arrow.clockwise")
+                    }
+                }
             }
         }
     }

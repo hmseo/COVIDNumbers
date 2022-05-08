@@ -16,7 +16,7 @@ extension Endpoint {
 	var url: URL {
 		var components = URLComponents()
 		components.scheme = "https"
-		components.host = "corona.lmao.ninja"
+		components.host = "disease.sh"
 		components.path = "/" + path
 		components.queryItems = queries
 
@@ -31,14 +31,14 @@ extension Endpoint {
 extension Endpoint {
 	static var worldwide: Self {
 		Endpoint(
-			path: "v2/all",
+			path: "v3/covid-19/all",
 			queries: [URLQueryItem(name: "yesterday", value: "true")]
 		)
 	}
 
     static var allCountries: Self {
         Endpoint(
-            path: "v2/countries",
+            path: "v3/covid-19/countries",
             queries: [
                 URLQueryItem(name: "yesterday", value: "true"),
                 URLQueryItem(name: "sort", value: "")
