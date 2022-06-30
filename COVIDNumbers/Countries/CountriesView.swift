@@ -25,12 +25,16 @@ struct CountriesView: View {
                     } else {
                         List {
                             ForEach(viewModel.searchedResults) { country in
-                                CountriesListRow(
-                                    name: country.country,
-                                    continent: country.continent,
-                                    population: country.population,
-                                    url: country.countryInfo.flag
-                                )
+                                NavigationLink {
+                                    CountryDetailView(country: country)
+                                } label: {
+                                    CountriesListRow(
+                                        name: country.country,
+                                        continent: country.continent,
+                                        population: country.population,
+                                        url: country.countryInfo.flag
+                                    )
+                                }
                             }
                         }
                         .listStyle(.plain)

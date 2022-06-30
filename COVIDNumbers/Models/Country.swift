@@ -17,6 +17,7 @@ struct Country: Decodable {
     let todayDeaths: Int
     let recovered: Int
     let todayRecovered: Int
+    let active: Int
     let population: Int
     let continent: String
 }
@@ -33,4 +34,28 @@ extension Country {
 
 extension Country: Identifiable {
     var id: String { country }
+}
+
+extension Country {
+    static var example: Country {
+        Country(
+            updated: 1653276487775,
+            country: "S. Korea",
+            countryInfo: CountryInfo(
+                iso2: "KR",
+                iso3: "KOR",
+                lat: 37,
+                long: 127.5,
+                flag: "https://disease.sh/assets/img/flags/kr.png"),
+            cases: 17967672,
+            todayCases: 9975,
+            deaths: 23987,
+            todayDeaths: 22,
+            recovered: 17414103,
+            todayRecovered: 42223,
+            active: 10334,
+            population: 51352317,
+            continent: "Asia"
+        )
+    }
 }
